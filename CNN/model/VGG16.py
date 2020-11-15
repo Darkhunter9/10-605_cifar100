@@ -49,5 +49,5 @@ def make_layers(cfg, batch_norm=False):
 
     return nn.Sequential(*layers)
 
-def VGG16():
+def vgg16():
     return VGG(make_layers(cfg['D'], batch_norm=True))
