@@ -375,10 +375,26 @@ for n_estimators in [1, 10, 50, 100, 200, 500, 1000, 5000]:
 	rf_clf_Original.n_estimators = n_estimators
 	rf_clf_PCA.n_estimators = n_estimators
 	rf_clf_AE.n_estimators = n_estimators
-	
-	rf_clf_Original.fit(X_train, y_train)
-	rf_clf_PCA.fit(X_train_pca, y_train)
-	rf_clf_AE.fit(X_train_compr, y_train)
+
+	for filename, clf in [(parameter_identifier_orig, rf_clf_Original)
+						(parameter_identifier_pca, rf_clf_PCA),
+						(parameter_identifier_ae, rf_clf_AE)]:
+
+		if os.path.exists(filename):
+			with open(filename, "rb") as file:
+				clf = pickle.load(file)
+		else:
+			if clf == rf_clf_Original:
+				rf_clf_Original.fit(X_train, y_train)
+
+			if clf == rf_clf_PCA:
+				rf_clf_PCA.fit(X_train_pca, y_train)
+
+			if clf == rf_clf_AE:
+				rf_clf_AE.fit(X_train_compr, y_train)
+
+			with open(filename, "wb") as file:
+				pickle.dump(clf, file)
 
 
 	orig_train_acc_scores.append(100.0 * rf_clf_Original.score(X_train, y_train))
@@ -389,6 +405,7 @@ for n_estimators in [1, 10, 50, 100, 200, 500, 1000, 5000]:
 	orig_test_acc_scores.append(100.0 * rf_clf_Original.score(X_test, y_test))
 	pca_test_acc_scores.append(100.0 * rf_clf_PCA.score(X_test_pca, y_test))
 	ae_test_acc_scores.append(100.0 * rf_clf_AE.score(X_test_compr, y_test))
+
 
 	ests_list.append(n_estimators)
 
@@ -407,10 +424,5 @@ for n_estimators in [1, 10, 50, 100, 200, 500, 1000, 5000]:
 
 	# {rf.score(X_train_compr, y_train)*100}%
 	# {rf.score(X_test_compr, y_test)*100}%
-
-
-
-
-
 
 

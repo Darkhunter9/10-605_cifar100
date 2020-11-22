@@ -883,8 +883,11 @@ def plot_accuracies(history):
 
 	plt.subplot(1, 2, 1)
 	plt.plot(n_ests, test_accuracies, '-bx')
+	plt.legend(['Validation'])
+
 	plt.subplot(1, 2, 2)
 	plt.plot(n_ests, train_accuracies, '-rx')
+	plt.legend(['Training'])
 
 	plt.tight_layout()
 	plt.xlabel('n_trees')
