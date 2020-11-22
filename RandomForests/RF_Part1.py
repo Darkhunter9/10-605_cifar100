@@ -846,27 +846,41 @@ x_train, x_test, y_train, y_test = pixels_train, pixels_test, cls_train, cls_tes
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.metrics import log_loss
 
-def cross_entropy(predictions, targets):
-	N = predictions.shape[0]
-	ce = -np.sum(targets * np.log(predictions)) / N
-	return ce
 
-def compute_loss_from_prob(model, images, labels):
 
-	y_pred = model.predict_proba(images)
+
+
+from sklearn.metrics import precision_score, recall_score, f1_score, roc_auc_score
+
+def compute_metrics_for_model(model, images, labels):
+
+	# unthresholded prob scores
+	y_score = model.predict_proba(images)
+	# thresholded classification predictions
+	y_pred = model.predict(images)
+
 	y_true = labels
 
 	y_true = OneHotEncoder().fit_transform(labels.reshape(-1,1)).toarray()
 
-	print(y_pred.shape, y_true.shape)
-	assert(y_pred.shape == y_true.shape)
+	print(y_score.shape, y_true.shape)
+	assert(y_score.shape == y_true.shape)
 
-	ce_loss = cross_entropy(y_pred, y_true)
-	ll_loss = log_loss(y_true, y_pred)
 
-	print(ce_loss, ll_loss)
-	#assert(ce_loss == ll_loss)
-	return ll_loss
+	ll_loss = log_loss(y_true, y_score)
+	prec_score = precision_score(y_true, y_pred, average = 'micro')
+	recall_score = recall_score(y_true, y_pred, average = 'micro')
+	f1_score = f1_score(y_true, y_pred, average = 'micro')
+	roc_auc_score = roc_auc_score(y_true, y_score, average = 'micro')
+
+	print("precision_score : ", precision_score)
+	print("recall_score : ", recall_score)
+	print("f1_score : ", f1_score)
+	print("ll_loss : ", ll_loss)
+
+	return ll_loss, prec_score, recall_score, f1_score, roc_auc_score
+
+
 
 
 
@@ -895,6 +909,106 @@ def plot_accuracies(history):
 	plt.title('Accuracy vs. No. of Trees')
 
 	plt.savefig("RF Accuracies v_s Num_Trees Part 1.png", bbox_inches='tight')
+
+
+
+# Training and Validation loss graph
+def plot_metrics(history):
+
+	## PLOTTING PRECISIONS
+
+	plt.clf()
+
+	train_prec_scores = [x.get('train_prec_score') for x in history]
+	test_prec_scores = [x['test_prec_score'] for x in history]
+
+	n_ests = [x['n_estimators'] for x in history]
+
+	plt.plot(n_ests, train_prec_scores, '-bx')
+	plt.plot(n_ests, test_prec_scores, '-rx')
+	
+	plt.xlabel('epoch')
+	plt.ylabel('prec_score')
+
+	plt.legend(['Training', 'Validation'])
+
+	plt.title('Precision vs. No. of Trees');
+
+	plt.savefig("RF Precisions v_s Num_Trees Part 1.png", bbox_inches='tight')
+
+
+
+	## PLOTTING RECALLS
+
+	plt.clf()
+
+	train_recalls = [x.get('train_recall_score') for x in history]
+	test_recalls = [x['test_recall_score'] for x in history]
+
+	n_ests = [x['n_estimators'] for x in history]
+
+	plt.plot(n_ests, train_recalls, '-bx')
+	plt.plot(n_ests, test_recalls, '-rx')
+	
+	plt.xlabel('epoch')
+	plt.ylabel('recall_score')
+
+	plt.legend(['Training', 'Validation'])
+
+	plt.title('Recall vs. No. of Trees');
+
+	plt.savefig("RF Recalls v_s Num_Trees Part 1.png", bbox_inches='tight')
+
+
+
+	## PLOTTING F1-Scores
+
+	plt.clf()
+
+	train_F1_scores = [x.get('train_f1_score') for x in history]
+	test_F1_scores = [x['test_f1_score'] for x in history]
+
+	n_ests = [x['n_estimators'] for x in history]
+
+	plt.plot(n_ests, train_F1_scores, '-bx')
+	plt.plot(n_ests, test_F1_scores, '-rx')
+	
+	plt.xlabel('epoch')
+	plt.ylabel('F1_score')
+
+	plt.legend(['Training', 'Validation'])
+
+	plt.title('F1_score vs. No. of Trees');
+
+	plt.savefig("RF F1_Scores v_s Num_Trees Part 1.png", bbox_inches='tight')
+
+
+
+	## PLOTTING AUC_Scores
+
+	plt.clf()
+
+	train_auc_scores = [x.get('train_roc_auc_score') for x in history]
+	test_auc_scores = [x['test_roc_auc_score'] for x in history]
+
+	n_ests = [x['n_estimators'] for x in history]
+
+	plt.plot(n_ests, train_auc_scores, '-bx')
+	plt.plot(n_ests, test_auc_scores, '-rx')
+	
+	plt.xlabel('epoch')
+	plt.ylabel('AUC Score')
+
+	plt.legend(['Training', 'Validation'])
+
+	plt.title('AUC Score vs. No. of Trees');
+
+	plt.savefig("RF AUC_Scores v_s Num_Trees Part 1.png", bbox_inches='tight')
+
+
+
+
+
 
 
 
@@ -930,14 +1044,16 @@ n_estimators = 1
 
 clf = RandomForestClassifier(n_estimators=n_estimators, criterion='gini', max_depth= max(50, n_estimators/10), min_samples_split=10, n_jobs = 5, warm_start=True)
 
-for n_estimators in [1, 10, 50, 100, 200, 500, 1000, 5000]:
-#for n_estimators in [1, 5]:
+#for n_estimators in [1, 10, 50, 100, 200, 500, 1000, 5000]:
+for n_estimators in [1, 5]:
 	#my_RF_model = TorchRandomForestClassifier(nb_trees = n_estimators, nb_samples=30, max_depth=max(5, n_estimators), bootstrap=True)
 
 	clf.n_estimators = n_estimators
 
 	my_RF_model = clf
 	filename = f"RFModel_P1_n_estimators={my_RF_model.n_estimators}, max_depth= {my_RF_model.max_depth}.rfmodel"
+
+	print("\n\n", filename, "\n\n")
 
 	if os.path.exists(filename):
 		with open(filename, "rb") as file:
@@ -952,18 +1068,36 @@ for n_estimators in [1, 10, 50, 100, 200, 500, 1000, 5000]:
 	test_acc = 100.0 * clf.score(x_test, y_test)
 	train_acc = 100.0 * clf.score(x_train, y_train)
 
-	train_loss = compute_loss_from_prob(clf, x_train, y_train)
-	test_loss = compute_loss_from_prob(clf, x_test, y_test)
+
+	train_metrics = compute_metrics_for_model(clf, x_train, y_train)
+	train_ll_loss, train_prec_score, train_recall_score, train_f1_score, train_roc_auc_score = train_metrics
+
+	test_metrics = compute_metrics_for_model(clf, x_test, y_test)
+	test_ll_loss, test_prec_score, test_recall_score, test_f1_score, test_roc_auc_score = test_metrics
+
 
 	result = {}
-
 
 	result['test_acc'] = test_acc
 	result['train_acc'] = train_acc
 
+	result['test_loss'] = test_ll_loss
+	result['train_loss'] = train_ll_loss
 
-	result['test_loss'] = test_loss
-	result['train_loss'] = train_loss
+
+
+	result['test_prec_score'] = test_prec_score
+	result['train_prec_score'] = train_prec_score
+
+	result['test_recall_score'] = test_recall_score
+	result['train_recall_score'] = train_recall_score
+
+	result['test_f1_score'] = test_f1_score
+	result['train_f1_score'] = train_f1_score
+
+	result['test_roc_auc_score'] = test_roc_auc_score
+	result['train_roc_auc_score'] = train_roc_auc_score
+
 
 	result['n_estimators'] = n_estimators
 
@@ -973,6 +1107,9 @@ for n_estimators in [1, 10, 50, 100, 200, 500, 1000, 5000]:
 
 	plot_accuracies(rf_history)
 	plot_losses(rf_history)
+
+
+	plot_metrics(rf_history)
 
 
 

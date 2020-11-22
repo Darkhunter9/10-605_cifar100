@@ -167,7 +167,7 @@ def compute_loss_from_prob(model, images, labels):
   print(y_pred.shape, y_true.shape)
   assert(y_pred.shape == y_true.shape)
 
-  ce_loss = cross_entropy(y_pred, y_true)
+  #ce_loss = cross_entropy(y_pred, y_true)
   ll_loss = log_loss(y_true, y_pred)
 
   print(ce_loss, ll_loss)
