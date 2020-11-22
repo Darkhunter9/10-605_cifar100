@@ -867,10 +867,10 @@ def compute_metrics_for_model(model, images, labels):
 
 
 	ll_loss = log_loss(y_true, y_score)
-	prec_score = precision_score(labels, y_pred, average = 'micro')
-	recall_score = sklearn.metrics.recall_score(labels, y_pred, average = 'micro')
-	f1_score = sklearn.metrics.f1_score(labels, y_pred, average = 'micro')
-	roc_auc_score = sklearn.metrics.roc_auc_score(y_true, y_score, average = 'micro')
+	prec_score = precision_score(labels, y_pred, average = 'macro')
+	recall_score = sklearn.metrics.recall_score(labels, y_pred, average = 'macro')
+	f1_score = sklearn.metrics.f1_score(labels, y_pred, average = 'macro')
+	roc_auc_score = sklearn.metrics.roc_auc_score(y_true, y_score, average = 'macro')
 
 	print("precision_score : ", prec_score)
 	print("recall_score : ", recall_score)
