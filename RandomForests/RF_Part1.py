@@ -47,6 +47,7 @@ Original file is located at
 import numpy as np
 import pickle
 import os
+import sys
 
 ########################################################################
 
@@ -877,6 +878,8 @@ def compute_metrics_for_model(model, images, labels):
 	print("f1_score : ", f1_score)
 	print("ll_loss : ", ll_loss)
 
+	sys.stdout.flush()
+
 	return ll_loss, prec_score, recall_score, f1_score, roc_auc_score
 
 
@@ -1054,6 +1057,8 @@ for n_estimators in [1, 10, 50, 100, 200, 500, 1000, 5000]:
 
 	print("\n\n", filename, "\n\n")
 
+	sys.stdout.flush()
+
 	if os.path.exists(filename):
 		with open(filename, "rb") as file:
 			clf = pickle.load(file)
@@ -1101,6 +1106,8 @@ for n_estimators in [1, 10, 50, 100, 200, 500, 1000, 5000]:
 	result['n_estimators'] = n_estimators
 
 	print(result)
+
+	sys.stdout.flush()
 
 	rf_history.append(result)
 

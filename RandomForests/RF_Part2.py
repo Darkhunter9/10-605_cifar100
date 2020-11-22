@@ -43,6 +43,8 @@ from torchvision.utils import make_grid
 import torchvision.models as models
 import matplotlib.pyplot as plt
 import opendatasets as od
+import sys
+
 # %matplotlib inline
 
 kaggle_api = {"username":"varunrawal","key":"16c2afe690b4b18e912ad53dc7424900"}
@@ -216,6 +218,8 @@ def training_step(self, batch, param_identifier):
 	print("Train Accuracy : ", 100.0*train_acc)
 	print("Train Loss : ", train_loss)
 
+	sys.stdout.flush()
+
 	with open(filename, "wb") as file:
 	  pickle.dump(self, file)
 
@@ -237,7 +241,12 @@ def validation_step(self, batch):
 
 	val_loss = compute_loss_from_prob(self, images, labels)
 
-	return {'val_acc': val_acc, 'val_loss' : val_loss}
+	return_map = {'val_acc': val_acc, 'val_loss' : val_loss}
+	print(return_map)
+
+	sys.stdout.flush()
+
+	return return_map
 	
 def validation_epoch_end(self, outputs):
 
@@ -250,8 +259,10 @@ def validation_epoch_end(self, outputs):
 	return {'val_acc': epoch_acc, 'val_loss': epoch_loss}
 
 def epoch_end(self, epoch, result):
+
 	print("Epoch [{}], val_acc: {:.4f}".format(
 		epoch, result['val_acc']))
+	sys.stdout.flush()
 
 """# load setup.py and requirements.txt from https://github.com/ValentinFigue/Sklearn_PyTorch"""
 
@@ -361,6 +372,8 @@ def fit_one_cycle(n_estimators, epochs, max_lr, model, train_loader, val_loader,
 		result['n_estimators'] = n_estimators
 
 		print("Results : ", result, "\n\n")
+
+		sys.stdout.flush()
 
 		history.append(result)
 	return history
