@@ -365,8 +365,8 @@ ae_test_acc_scores = []
 
 ests_list = []
 
-#for n_estimators in [1, 10, 50, 100, 200, 500, 1000, 5000]:
-for n_estimators in [1, 10]:
+for n_estimators in [1, 10, 50, 100, 200, 500, 1000, 5000]:
+#for n_estimators in [1, 10]:
 
 	parameter_identifier_orig = f"RF_Original_P3_n_estimators={n_estimators}, max_depth= {rf_clf_Original.max_depth}.rfmodel"
 	parameter_identifier_pca = f"RF_PCA_P3_n_estimators={n_estimators}, max_depth= {rf_clf_Original.max_depth}.rfmodel"
