@@ -868,9 +868,9 @@ def compute_metrics_for_model(model, images, labels):
 
 
 	ll_loss = log_loss(y_true, y_score)
-	prec_score = precision_score(y_true, y_pred, average = 'micro')
-	recall_score = recall_score(y_true, y_pred, average = 'micro')
-	f1_score = f1_score(y_true, y_pred, average = 'micro')
+	prec_score = precision_score(labels, y_pred, average = 'micro')
+	recall_score = recall_score(labels, y_pred, average = 'micro')
+	f1_score = f1_score(labels, y_pred, average = 'micro')
 	roc_auc_score = roc_auc_score(y_true, y_score, average = 'micro')
 
 	print("precision_score : ", precision_score)
