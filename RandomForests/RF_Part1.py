@@ -848,8 +848,7 @@ from sklearn.metrics import log_loss
 
 
 
-
-
+import sklearn
 from sklearn.metrics import precision_score, recall_score, f1_score, roc_auc_score
 
 def compute_metrics_for_model(model, images, labels):
@@ -869,11 +868,11 @@ def compute_metrics_for_model(model, images, labels):
 
 	ll_loss = log_loss(y_true, y_score)
 	prec_score = precision_score(labels, y_pred, average = 'micro')
-	recall_score = recall_score(labels, y_pred, average = 'micro')
-	f1_score = f1_score(labels, y_pred, average = 'micro')
-	roc_auc_score = roc_auc_score(y_true, y_score, average = 'micro')
+	recall_score = sklearn.metrics.recall_score(labels, y_pred, average = 'micro')
+	f1_score = sklearn.metrics.f1_score(labels, y_pred, average = 'micro')
+	roc_auc_score = sklearn.metrics.roc_auc_score(y_true, y_score, average = 'micro')
 
-	print("precision_score : ", precision_score)
+	print("precision_score : ", prec_score)
 	print("recall_score : ", recall_score)
 	print("f1_score : ", f1_score)
 	print("ll_loss : ", ll_loss)
