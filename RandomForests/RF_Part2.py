@@ -443,7 +443,7 @@ history = []
 n_estimators = 1
 my_RF_model = RandomForestClassifier(n_estimators= n_estimators, criterion='gini', max_depth= max(50, n_estimators/10), min_samples_split=30, n_jobs = None, warm_start=True)
 
-for n_estimators in [1, 10, 50, 100, 200, 500, 1000, 5000]:
+for n_estimators in [1, 10, 25, 35, 40, 50, 100, 200, 500, 1000, 5000]:
 #for n_estimators in [1, 5]:
 
 	parameter_identifier = f"RF_P2_n_estimators={my_RF_model.n_estimators}, max_depth= {my_RF_model.max_depth}.rfmodel"

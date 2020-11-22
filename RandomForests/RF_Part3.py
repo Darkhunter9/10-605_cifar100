@@ -15,6 +15,7 @@ import torch.nn.functional as F
 from torchvision import datasets
 from torchvision import transforms
 from torch.utils.data import DataLoader
+import pickle
 
 if torch.cuda.is_available():
 		torch.backends.cudnn.deterministic = True
@@ -376,9 +377,11 @@ for n_estimators in [1, 10, 50, 100, 200, 500, 1000, 5000]:
 	rf_clf_PCA.n_estimators = n_estimators
 	rf_clf_AE.n_estimators = n_estimators
 
-	for filename, clf in [(parameter_identifier_orig, rf_clf_Original)
-						(parameter_identifier_pca, rf_clf_PCA),
-						(parameter_identifier_ae, rf_clf_AE)]:
+	for filename, clf in [
+					(parameter_identifier_orig, rf_clf_Original),
+					(parameter_identifier_pca, rf_clf_PCA),
+					(parameter_identifier_ae, rf_clf_AE)
+						]:
 
 		if os.path.exists(filename):
 			with open(filename, "rb") as file:
