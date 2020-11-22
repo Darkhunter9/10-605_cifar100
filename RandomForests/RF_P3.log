@@ -3,16 +3,16 @@ Files already downloaded and verified
 Image batch dimensions: torch.Size([50000, 3, 32, 32])
 Image label dimensions: torch.Size([50000])
 Epoch: 001/005 | Batch 000/001 | Cost: 0.2648
-Time elapsed: 0.58 min
+Time elapsed: 0.89 min
 Epoch: 002/005 | Batch 000/001 | Cost: 0.2330
-Time elapsed: 1.30 min
+Time elapsed: 1.34 min
 Epoch: 003/005 | Batch 000/001 | Cost: 0.1100
-Time elapsed: 2.04 min
+Time elapsed: 1.82 min
 Epoch: 004/005 | Batch 000/001 | Cost: 0.1092
-Time elapsed: 2.82 min
+Time elapsed: 2.38 min
 Epoch: 005/005 | Batch 000/001 | Cost: 0.1093
-Time elapsed: 3.46 min
-Total Training Time: 3.46 min
+Time elapsed: 2.99 min
+Total Training Time: 2.99 min
 Image batch dimensions: torch.Size([15, 3, 32, 32])
 Image label dimensions: torch.Size([15])
 Image batch dimensions: torch.Size([15, 3, 32, 32])
@@ -21,9 +21,9 @@ Image batch dimensions: torch.Size([50000, 3, 32, 32])
 Image label dimensions: torch.Size([50000])
 Image batch dimensions: torch.Size([10000, 3, 32, 32])
 Image label dimensions: torch.Size([10000])
-Train Accuracy: 65.73%
-Test Accuracy: 6.7%
-Train Accuracy: 65.392%
-Test Accuracy: 5.99%
-Train Accuracy: 64.872%
-Test Accuracy: 4.17%
+Train Accuracy: 65.60000000000001%
+Test Accuracy: 6.58%
+Train Accuracy: 65.24799999999999%
+Test Accuracy: 5.74%
+Train Accuracy: 64.542%
+Test Accuracy: 4.25%

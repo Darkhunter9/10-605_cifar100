@@ -458,10 +458,7 @@ for n_estimators in [1, 10, 50, 100, 200, 500, 1000, 5000]:
 	plot_accuracies(history)
 	plot_losses(history)
 
-
-
 plot_accuracies(history)
-
 plot_losses(history)
 
 """# **Prediction and testing of MODEL**"""

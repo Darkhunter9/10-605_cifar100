@@ -356,6 +356,13 @@ rf_clf_AE = RandomForestClassifier(n_estimators= n_estimators, criterion='gini',
 orig_train_acc_scores = []
 pca_train_acc_scores = []
 ae_train_acc_scores = []
+
+
+orig_test_acc_scores = []
+pca_test_acc_scores = []
+ae_test_acc_scores = []
+
+
 ests_list = []
 
 #for n_estimators in [1, 10, 50, 100, 200, 500, 1000, 5000]:
@@ -374,14 +381,14 @@ for n_estimators in [1, 10]:
 	rf_clf_AE.fit(X_train_compr, y_train)
 
 
-	orig_train_acc_scores.append(100.0 * rf.score(X_train, y_train))
-	pca_train_acc_scores.append(100.0 * rf.score(X_train_pca, y_train))
-	ae_train_acc_scores.append(100.0 * rf.score(X_train_compr, y_train))
+	orig_train_acc_scores.append(100.0 * rf_clf_Original.score(X_train, y_train))
+	pca_train_acc_scores.append(100.0 * rf_clf_PCA.score(X_train_pca, y_train))
+	ae_train_acc_scores.append(100.0 * rf_clf_AE.score(X_train_compr, y_train))
 
 
-	orig_test_acc_scores.append(100.0 * rf.score(X_test, y_test))
-	pca_test_acc_scores.append(100.0 * rf.score(X_test_pca, y_test))
-	ae_test_acc_scores.append(100.0 * rf.score(X_test_compr, y_test))
+	orig_test_acc_scores.append(100.0 * rf_clf_Original.score(X_test, y_test))
+	pca_test_acc_scores.append(100.0 * rf_clf_PCA.score(X_test_pca, y_test))
+	ae_test_acc_scores.append(100.0 * rf_clf_AE.score(X_test_compr, y_test))
 
 	ests_list.append(n_estimators)
 
