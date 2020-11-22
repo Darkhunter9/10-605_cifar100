@@ -359,6 +359,9 @@ def fit_one_cycle(n_estimators, epochs, max_lr, model, train_loader, val_loader,
 		#result['lrs'] = lrs
 		epoch_end(model, epoch, result)
 		result['n_estimators'] = n_estimators
+
+		print("Results : ", result, "\n\n")
+
 		history.append(result)
 	return history
 
