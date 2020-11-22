@@ -1,0 +1,47 @@
+Computing expensive_function() ...
+- Data loaded from cache-file: cache_expensive_function.pkl
+result = 56088
+
+Creating object from ExpensiveClass() ...
+- Data loaded from cache-file: cache_ExpensiveClass.pkl
+c = 123
+d = 456
+result = c * d = 56088
+Data has apparently already been downloaded and unpacked.
+Loading data: data/CIFAR-100/cifar-100-python/meta
+Loading data: data/CIFAR-100/cifar-100-python/meta
+Loading data: data/CIFAR-100/cifar-100-python/train
+Loading data: data/CIFAR-100/cifar-100-python/test
+Size of:
+Training-set:		50000
+Test-set:		10000
+(50000, 100) (50000, 100)
+nan 11.73907913716685
+(10000, 100) (10000, 100)
+nan 29.991481107525573
+{'test_acc': 6.64, 'train_acc': 38.428000000000004, 'test_loss': 29.991481107525573, 'train_loss': 11.73907913716685, 'n_estimators': 1}
+(50000, 100) (50000, 100)
+nan 1.1729414517058696
+(10000, 100) (10000, 100)
+nan 13.829526964679724
+{'test_acc': 13.750000000000002, 'train_acc': 94.594, 'test_loss': 13.829526964679724, 'train_loss': 1.1729414517058696, 'n_estimators': 10}
+(50000, 100) (50000, 100)
+nan 1.112369170659797
+(10000, 100) (10000, 100)
+nan 4.650494893509678
+{'test_acc': 20.080000000000002, 'train_acc': 99.882, 'test_loss': 4.650494893509678, 'train_loss': 1.112369170659797, 'n_estimators': 50}
+(50000, 100) (50000, 100)
+nan 1.104944453331553
+(10000, 100) (10000, 100)
+nan 3.76868185425534
+{'test_acc': 22.15, 'train_acc': 99.942, 'test_loss': 3.76868185425534, 'train_loss': 1.104944453331553, 'n_estimators': 100}
+(50000, 100) (50000, 100)
+nan 1.1024751492549592
+(10000, 100) (10000, 100)
+nan 3.5569811157224387
+{'test_acc': 23.51, 'train_acc': 99.956, 'test_loss': 3.5569811157224387, 'train_loss': 1.1024751492549592, 'n_estimators': 200}
+(50000, 100) (50000, 100)
+nan 1.0995028242865426
+(10000, 100) (10000, 100)
+nan 3.4862980251288076
+{'test_acc': 24.73, 'train_acc': 99.968, 'test_loss': 3.4862980251288076, 'train_loss': 1.0995028242865426, 'n_estimators': 500}
