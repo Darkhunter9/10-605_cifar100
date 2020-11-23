@@ -47,6 +47,7 @@ Original file is located at
 import numpy as np
 import pickle
 import os
+import sys
 
 ########################################################################
 
@@ -848,8 +849,7 @@ from sklearn.metrics import log_loss
 
 
 
-
-
+import sklearn
 from sklearn.metrics import precision_score, recall_score, f1_score, roc_auc_score
 
 def compute_metrics_for_model(model, images, labels):
@@ -868,15 +868,17 @@ def compute_metrics_for_model(model, images, labels):
 
 
 	ll_loss = log_loss(y_true, y_score)
-	prec_score = precision_score(labels, y_pred, average = 'micro')
-	recall_score = recall_score(labels, y_pred, average = 'micro')
-	f1_score = f1_score(labels, y_pred, average = 'micro')
-	roc_auc_score = roc_auc_score(y_true, y_score, average = 'micro')
+	prec_score = precision_score(labels, y_pred, average = 'macro')
+	recall_score = sklearn.metrics.recall_score(labels, y_pred, average = 'macro')
+	f1_score = sklearn.metrics.f1_score(labels, y_pred, average = 'macro')
+	roc_auc_score = sklearn.metrics.roc_auc_score(y_true, y_score, average = 'macro')
 
-	print("precision_score : ", precision_score)
+	print("precision_score : ", prec_score)
 	print("recall_score : ", recall_score)
 	print("f1_score : ", f1_score)
 	print("ll_loss : ", ll_loss)
+
+	sys.stdout.flush()
 
 	return ll_loss, prec_score, recall_score, f1_score, roc_auc_score
 
@@ -1047,8 +1049,8 @@ import time
 
 clf = RandomForestClassifier(n_estimators=n_estimators, criterion='gini', max_depth= max(50, n_estimators/10), min_samples_split=10, n_jobs = 5, warm_start=True)
 
-#for n_estimators in [1, 10, 50, 100, 200, 500, 1000, 5000]:
-for n_estimators in [1, 5]:
+for n_estimators in [1, 10, 50, 100, 200, 500, 1000, 5000]:
+#for n_estimators in [1, 5]:
 	#my_RF_model = TorchRandomForestClassifier(nb_trees = n_estimators, nb_samples=30, max_depth=max(5, n_estimators), bootstrap=True)
 
 	clf.n_estimators = n_estimators
@@ -1057,6 +1059,8 @@ for n_estimators in [1, 5]:
 	filename = f"RFModel_P1_n_estimators={my_RF_model.n_estimators}, max_depth= {my_RF_model.max_depth}.rfmodel"
 
 	print("\n\n", filename, "\n\n")
+
+	sys.stdout.flush()
 
 	if os.path.exists(filename):
 		with open(filename, "rb") as file:
@@ -1110,6 +1114,8 @@ for n_estimators in [1, 5]:
 	result['n_estimators'] = n_estimators
 
 	print(result)
+
+	sys.stdout.flush()
 
 	rf_history.append(result)
 

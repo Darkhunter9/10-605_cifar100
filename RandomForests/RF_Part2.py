@@ -43,6 +43,8 @@ from torchvision.utils import make_grid
 import torchvision.models as models
 import matplotlib.pyplot as plt
 import opendatasets as od
+import sys
+
 # %matplotlib inline
 
 kaggle_api = {"username":"varunrawal","key":"16c2afe690b4b18e912ad53dc7424900"}
@@ -216,6 +218,8 @@ def training_step(self, batch, param_identifier):
 	print("Train Accuracy : ", 100.0*train_acc)
 	print("Train Loss : ", train_loss)
 
+	sys.stdout.flush()
+
 	with open(filename, "wb") as file:
 	  pickle.dump(self, file)
 
@@ -237,7 +241,12 @@ def validation_step(self, batch):
 
 	val_loss = compute_loss_from_prob(self, images, labels)
 
-	return {'val_acc': val_acc, 'val_loss' : val_loss}
+	return_map = {'val_acc': val_acc, 'val_loss' : val_loss}
+	print(return_map)
+
+	sys.stdout.flush()
+
+	return return_map
 	
 def validation_epoch_end(self, outputs):
 
@@ -250,8 +259,10 @@ def validation_epoch_end(self, outputs):
 	return {'val_acc': epoch_acc, 'val_loss': epoch_loss}
 
 def epoch_end(self, epoch, result):
+
 	print("Epoch [{}], val_acc: {:.4f}".format(
 		epoch, result['val_acc']))
+	sys.stdout.flush()
 
 """# load setup.py and requirements.txt from https://github.com/ValentinFigue/Sklearn_PyTorch"""
 
@@ -367,6 +378,11 @@ def fit_one_cycle(n_estimators, epochs, max_lr, model, train_loader, val_loader,
 		#result['lrs'] = lrs
 		epoch_end(model, epoch, result)
 		result['n_estimators'] = n_estimators
+
+		print("Results : ", result, "\n\n")
+
+		sys.stdout.flush()
+
 		history.append(result)
 	return history
 
@@ -387,6 +403,137 @@ max_lr = 0.01
 grad_clip = 0.1
 weight_decay =1e-4
 opt_func = torch.optim.Adam
+
+
+
+
+import sklearn
+from sklearn.metrics import precision_score, recall_score, f1_score, roc_auc_score
+
+def compute_metrics_for_model(model, images, labels):
+
+	# unthresholded prob scores
+	y_score = model.predict_proba(images)
+	# thresholded classification predictions
+	y_pred = model.predict(images)
+
+	y_true = labels
+
+	y_true = OneHotEncoder().fit_transform(labels.reshape(-1,1)).toarray()
+
+	print(y_score.shape, y_true.shape)
+	assert(y_score.shape == y_true.shape)
+
+
+	ll_loss = log_loss(y_true, y_score)
+	prec_score = precision_score(labels, y_pred, average = 'micro')
+	recall_score = sklearn.metrics.recall_score(labels, y_pred, average = 'micro')
+	f1_score = sklearn.metrics.f1_score(labels, y_pred, average = 'micro')
+	roc_auc_score = sklearn.metrics.roc_auc_score(y_true, y_score, average = 'micro')
+
+	print("precision_score : ", prec_score)
+	print("recall_score : ", recall_score)
+	print("f1_score : ", f1_score)
+	print("ll_loss : ", ll_loss)
+
+	return ll_loss, prec_score, recall_score, f1_score, roc_auc_score
+
+
+
+
+# Training and Validation loss graph
+def plot_metrics(history):
+
+	## PLOTTING PRECISIONS
+
+	plt.clf()
+
+	train_prec_scores = [x.get('train_prec_score') for x in history]
+	test_prec_scores = [x['test_prec_score'] for x in history]
+
+	n_ests = [x['n_estimators'] for x in history]
+
+	plt.plot(n_ests, train_prec_scores, '-bx')
+	plt.plot(n_ests, test_prec_scores, '-rx')
+	
+	plt.xlabel('epoch')
+	plt.ylabel('prec_score')
+
+	plt.legend(['Training', 'Validation'])
+
+	plt.title('Precision vs. No. of Trees');
+
+	plt.savefig("RF Precisions v_s Num_Trees Part 2.png", bbox_inches='tight')
+
+
+
+	## PLOTTING RECALLS
+
+	plt.clf()
+
+	train_recalls = [x.get('train_recall_score') for x in history]
+	test_recalls = [x['test_recall_score'] for x in history]
+
+	n_ests = [x['n_estimators'] for x in history]
+
+	plt.plot(n_ests, train_recalls, '-bx')
+	plt.plot(n_ests, test_recalls, '-rx')
+	
+	plt.xlabel('epoch')
+	plt.ylabel('recall_score')
+
+	plt.legend(['Training', 'Validation'])
+
+	plt.title('Recall vs. No. of Trees');
+
+	plt.savefig("RF Recalls v_s Num_Trees Part 2.png", bbox_inches='tight')
+
+
+
+	## PLOTTING F1-Scores
+
+	plt.clf()
+
+	train_F1_scores = [x.get('train_f1_score') for x in history]
+	test_F1_scores = [x['test_f1_score'] for x in history]
+
+	n_ests = [x['n_estimators'] for x in history]
+
+	plt.plot(n_ests, train_F1_scores, '-bx')
+	plt.plot(n_ests, test_F1_scores, '-rx')
+	
+	plt.xlabel('epoch')
+	plt.ylabel('F1_score')
+
+	plt.legend(['Training', 'Validation'])
+
+	plt.title('F1_score vs. No. of Trees');
+
+	plt.savefig("RF F1_Scores v_s Num_Trees Part 2.png", bbox_inches='tight')
+
+
+
+	## PLOTTING AUC_Scores
+
+	plt.clf()
+
+	train_auc_scores = [x.get('train_roc_auc_score') for x in history]
+	test_auc_scores = [x['test_roc_auc_score'] for x in history]
+
+	n_ests = [x['n_estimators'] for x in history]
+
+	plt.plot(n_ests, train_auc_scores, '-bx')
+	plt.plot(n_ests, test_auc_scores, '-rx')
+	
+	plt.xlabel('epoch')
+	plt.ylabel('AUC Score')
+
+	plt.legend(['Training', 'Validation'])
+
+	plt.title('AUC Score vs. No. of Trees');
+
+	plt.savefig("RF AUC_Scores v_s Num_Trees Part 2.png", bbox_inches='tight')
+
 
 
 
@@ -458,6 +605,8 @@ for n_estimators in [1, 10, 25, 35, 40, 50, 100, 200, 500, 1000, 5000]:
 	#my_RF_model = TorchRandomForestClassifier(nb_trees = n_estimators, nb_samples=30, max_depth=max(5, n_estimators), bootstrap=True)
 	my_RF_model.n_estimators = n_estimators
 
+	print("\n\n\n", parameter_identifier , "\n")
+
 	history += fit_one_cycle(n_estimators, epochs, max_lr, my_RF_model, train_dl, valid_dl, 
 							  grad_clip=grad_clip, 
 							  weight_decay=weight_decay, 
@@ -465,6 +614,7 @@ for n_estimators in [1, 10, 25, 35, 40, 50, 100, 200, 500, 1000, 5000]:
 
 	plot_accuracies(history)
 	plot_losses(history)
+
 
 plot_accuracies(history)
 plot_losses(history)
