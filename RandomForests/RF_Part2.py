@@ -313,6 +313,8 @@ def get_lr(optimizer):
 	for param_group in optimizer.param_groups:
 		return param_group['lr']
 
+import time
+
 def fit_one_cycle(n_estimators, epochs, max_lr, model, train_loader, val_loader, 
 				  weight_decay=0, grad_clip=None, opt_func=torch.optim.SGD, parameter_identifier = ""):
 	torch.cuda.empty_cache()
@@ -333,7 +335,13 @@ def fit_one_cycle(n_estimators, epochs, max_lr, model, train_loader, val_loader,
 		lrs = []
 		for batch in train_loader:
 
+
+			start = time.process_time()
+
 			acc, loss, model = training_step(model,batch, parameter_identifier)
+
+			print("\nTime consumed to fit model : ", time.process_time() - start, "\n\n")
+
 
 			train_losses.append(loss)
 			train_acc.append(acc)

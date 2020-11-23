@@ -366,6 +366,8 @@ ae_test_acc_scores = []
 
 ests_list = []
 
+import time 
+
 for n_estimators in [1, 10, 50, 100, 200, 500, 1000, 5000]:
 #for n_estimators in [1, 10]:
 
@@ -387,6 +389,9 @@ for n_estimators in [1, 10, 50, 100, 200, 500, 1000, 5000]:
 			with open(filename, "rb") as file:
 				clf = pickle.load(file)
 		else:
+
+			start = time.process_time()
+
 			if clf == rf_clf_Original:
 				rf_clf_Original.fit(X_train, y_train)
 
@@ -396,8 +401,11 @@ for n_estimators in [1, 10, 50, 100, 200, 500, 1000, 5000]:
 			if clf == rf_clf_AE:
 				rf_clf_AE.fit(X_train_compr, y_train)
 
+			print("\nTime consumed to fit model : ", time.process_time() - start, "\n\n")
+
 			with open(filename, "wb") as file:
 				pickle.dump(clf, file)
+
 
 
 	orig_train_acc_scores.append(100.0 * rf_clf_Original.score(X_train, y_train))

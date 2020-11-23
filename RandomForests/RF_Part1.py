@@ -1042,6 +1042,9 @@ rf_history = []
 n_estimators = 1
 
 
+import time
+
+
 clf = RandomForestClassifier(n_estimators=n_estimators, criterion='gini', max_depth= max(50, n_estimators/10), min_samples_split=10, n_jobs = 5, warm_start=True)
 
 #for n_estimators in [1, 10, 50, 100, 200, 500, 1000, 5000]:
@@ -1059,7 +1062,12 @@ for n_estimators in [1, 5]:
 		with open(filename, "rb") as file:
 			clf = pickle.load(file)
 	else:
+
+		start = time.process_time()
+
 		clf.fit(x_train, y_train)
+
+		print("\nTime consumed to fit model : ", time.process_time() - start, "\n\n")
 
 		with open(filename, "wb") as file:
 			pickle.dump(clf, file)
