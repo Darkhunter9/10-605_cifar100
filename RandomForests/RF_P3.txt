@@ -1,19 +1,18 @@
 Device: cpu
-Downloading https://www.cs.toronto.edu/~kriz/cifar-100-python.tar.gz to data/cifar-100-python.tar.gz
-Extracting data/cifar-100-python.tar.gz to data
+Files already downloaded and verified
 Image batch dimensions: torch.Size([50000, 3, 32, 32])
 Image label dimensions: torch.Size([50000])
 Epoch: 001/005 | Batch 000/001 | Cost: 0.8349
-Time elapsed: 0.18 min
+Time elapsed: 0.17 min
 Epoch: 002/005 | Batch 000/001 | Cost: 0.7763
-Time elapsed: 0.35 min
+Time elapsed: 0.34 min
 Epoch: 003/005 | Batch 000/001 | Cost: 0.6948
-Time elapsed: 0.52 min
+Time elapsed: 0.50 min
 Epoch: 004/005 | Batch 000/001 | Cost: 0.6941
-Time elapsed: 0.71 min
+Time elapsed: 0.67 min
 Epoch: 005/005 | Batch 000/001 | Cost: 0.6939
-Time elapsed: 0.90 min
-Total Training Time: 0.90 min
+Time elapsed: 0.83 min
+Total Training Time: 0.83 min
 Image batch dimensions: torch.Size([15, 3, 32, 32])
 Image label dimensions: torch.Size([15])
 Image batch dimensions: torch.Size([15, 3, 32, 32])
@@ -22,45 +21,21 @@ Image batch dimensions: torch.Size([50000, 3, 32, 32])
 Image label dimensions: torch.Size([50000])
 Image batch dimensions: torch.Size([10000, 3, 32, 32])
 Image label dimensions: torch.Size([10000])
-Train Accuracy: 65.564%
-Test Accuracy: 6.7299999999999995%
-Train Accuracy: 65.254%
-Test Accuracy: 5.72%
-Train Accuracy: 64.89399999999999%
-Test Accuracy: 4.18%
+Train Accuracy: 65.526%
+Test Accuracy: 6.710000000000001%
+Train Accuracy: 64.908%
+Test Accuracy: 5.6899999999999995%
+Train Accuracy: 64.9%
+Test Accuracy: 4.41%
 
-Time consumed to fit model :  6.406683065999999 
-
-
-
-Time consumed to fit model :  5.32048156099998 
+Time consumed to fit model :  7.162844825999997 
 
 
 
-Time consumed to fit model :  1.785764768000007 
+Time consumed to fit model :  4.50792287500002 
 
 
 
-Time consumed to fit model :  60.15366953100002 
-
-
-
-Time consumed to fit model :  39.233639186000005 
-
-
-
-Time consumed to fit model :  14.988409699000044 
-
-
-
-Time consumed to fit model :  263.395627352 
-
-
-
-Time consumed to fit model :  169.29821707500003 
-
-
-
-Time consumed to fit model :  67.80402234799999 
+Time consumed to fit model :  1.7394620620000012 
 
 

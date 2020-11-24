@@ -16,6 +16,7 @@ from torchvision import datasets
 from torchvision import transforms
 from torch.utils.data import DataLoader
 import pickle
+import sys
 
 if torch.cuda.is_available():
 		torch.backends.cudnn.deterministic = True
@@ -71,6 +72,7 @@ test_loader = DataLoader(dataset=test_dataset,
 for images, labels in train_loader:  
 		print('Image batch dimensions:', images.shape)
 		print('Image label dimensions:', labels.shape)
+		sys.stdout.flush()
 		break
 
 """## Model"""
@@ -159,8 +161,10 @@ for epoch in range(num_epochs):
 										 len(train_loader), cost))
 						
 		print('Time elapsed: %.2f min' % ((time.time() - start_time)/60))
+		sys.stdout.flush()
 		
 print('Total Training Time: %.2f min' % ((time.time() - start_time)/60))
+sys.stdout.flush()
 
 """### Training Dataset"""
 
@@ -252,6 +256,7 @@ test_loader = DataLoader(dataset=test_dataset,
 for images, labels in train_loader:  
 		print('Image batch dimensions:', images.shape)
 		print('Image label dimensions:', labels.shape)
+		sys.stdout.flush()
 		break
 
 num_channels = 3
@@ -265,6 +270,7 @@ y_train = np.array(labels)
 for images, labels in test_loader:  
 		print('Image batch dimensions:', images.shape)
 		print('Image label dimensions:', labels.shape)
+		sys.stdout.flush()
 		break
 
 X_test = np.array(images.reshape(10000, num_channels*image_dim*image_dim))
@@ -273,6 +279,7 @@ y_test = np.array(labels)
 rf = RandomForestClassifier(n_estimators=1, n_jobs=-1).fit(X_train, y_train)
 print(f'Train Accuracy: {rf.score(X_train, y_train)*100}%')
 print(f'Test Accuracy: {rf.score(X_test, y_test)*100}%')
+sys.stdout.flush()
 
 """### Using PCA"""
 
@@ -285,6 +292,7 @@ X_test_pca = pca.transform(X_test)
 rf = RandomForestClassifier(n_estimators=1, n_jobs=-1).fit(X_train_pca, y_train)
 print(f'Train Accuracy: {rf.score(X_train_pca, y_train)*100}%')
 print(f'Test Accuracy: {rf.score(X_test_pca, y_test)*100}%')
+sys.stdout.flush()
 
 """### Auto-Encoder Compressed CIFAR-100"""
 
@@ -323,7 +331,7 @@ for idx, (images, labels) in enumerate(test_loader):
 rf = RandomForestClassifier(n_estimators=1, n_jobs=-1).fit(X_train_compr, y_train)
 print(f'Train Accuracy: {rf.score(X_train_compr, y_train)*100}%')
 print(f'Test Accuracy: {rf.score(X_test_compr, y_test)*100}%')
-
+sys.stdout.flush()
 
 
 fig= plt.figure(figsize=(15, 8))
@@ -402,6 +410,8 @@ for n_estimators in [1, 10, 50, 100, 200, 500, 1000, 5000]:
 				rf_clf_AE.fit(X_train_compr, y_train)
 
 			print("\nTime consumed to fit model : ", time.process_time() - start, "\n\n")
+
+			sys.stdout.flush()
 
 			with open(filename, "wb") as file:
 				pickle.dump(clf, file)

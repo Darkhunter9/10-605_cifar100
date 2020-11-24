@@ -1,2 +1,47 @@
-Please provide your Kaggle credentials to download this dataset. Learn more: http://bit.ly/kaggle-creds
-Your Kaggle username: 
+['TRAIN', 'TEST']
+['can', 'palm_tree', 'whale', 'maple_tree', 'rocket', 'beaver', 'otter', 'streetcar', 'bridge', 'house']
+100
+NO. of Training examples for Man: 500
+['abel_s_000056.png', 'adam_s_002776.png', 'adam_s_000742.png', 'man_s_000549.png', 'man_s_000130.png']
+{'can': 500, 'palm_tree': 500, 'whale': 500, 'maple_tree': 500, 'rocket': 500, 'beaver': 500, 'otter': 500, 'streetcar': 500, 'bridge': 500, 'house': 500, 'mushroom': 500, 'butterfly': 500, 'forest': 500, 'camel': 500, 'pear': 500, 'bus': 500, 'flatfish': 500, 'bear': 500, 'wardrobe': 500, 'crocodile': 500, 'lion': 500, 'telephone': 500, 'chimpanzee': 500, 'road': 500, 'seal': 500, 'bowl': 500, 'cup': 500, 'ray': 500, 'baby': 500, 'mouse': 500, 'plain': 500, 'cattle': 500, 'man': 500, 'raccoon': 500, 'keyboard': 500, 'kangaroo': 500, 'plate': 500, 'aquarium_fish': 500, 'mountain': 500, 'dinosaur': 500, 'snail': 500, 'motorcycle': 500, 'snake': 500, 'tractor': 500, 'elephant': 500, 'worm': 500, 'skyscraper': 500, 'bee': 500, 'oak_tree': 500, 'willow_tree': 500, 'crab': 500, 'apple': 500, 'tank': 500, 'chair': 500, 'skunk': 500, 'bed': 500, 'lamp': 500, 'sweet_pepper': 500, 'dolphin': 500, 'boy': 500, 'clock': 500, 'turtle': 500, 'television': 500, 'sunflower': 500, 'cloud': 500, 'lobster': 500, 'leopard': 500, 'caterpillar': 500, 'porcupine': 500, 'orchid': 500, 'girl': 500, 'tulip': 500, 'tiger': 500, 'rabbit': 500, 'lizard': 500, 'castle': 500, 'bottle': 500, 'beetle': 500, 'cockroach': 500, 'couch': 500, 'possum': 500, 'pickup_truck': 500, 'hamster': 500, 'lawn_mower': 500, 'train': 500, 'fox': 500, 'sea': 500, 'wolf': 500, 'squirrel': 500, 'orange': 500, 'poppy': 500, 'spider': 500, 'table': 500, 'woman': 500, 'shark': 500, 'bicycle': 500, 'rose': 500, 'shrew': 500, 'pine_tree': 500, 'trout': 500}
+device :  cpu
+
+
+
+ RF_P2_n_estimators=1, max_depth= 50.rfmodel 
+
+(50000, 100) (50000, 100)
+LL lOss :  11.005091287757901
+Train Accuracy :  24.082
+Train Loss :  11.005091287757901
+
+Time consumed to fit model :  7.223058533 
+
+
+(10000, 100) (10000, 100)
+LL lOss :  25.947582639912337
+{'val_acc': 0.0608, 'val_loss': 25.947582639912337}
+Epoch [0], val_acc: 0.0608
+Results :  {'val_acc': 0.0608, 'val_loss': 25.947582639912337, 'train_loss': 11.005091287757901, 'train_acc': 0.24082, 'n_estimators': 1} 
+
+
+
+
+
+ RF_P2_n_estimators=1, max_depth= 50.rfmodel 
+
+(50000, 100) (50000, 100)
+LL lOss :  25.571853150989
+Train Accuracy :  6.658
+Train Loss :  25.571853150989
+
+Time consumed to fit model :  1.2830545130000104 
+
+
+(10000, 100) (10000, 100)
+LL lOss :  25.947582639912337
+{'val_acc': 0.0608, 'val_loss': 25.947582639912337}
+Epoch [0], val_acc: 0.0608
+Results :  {'val_acc': 0.0608, 'val_loss': 25.947582639912337, 'train_loss': 25.571853150989, 'train_acc': 0.06658, 'n_estimators': 10} 
+
+
