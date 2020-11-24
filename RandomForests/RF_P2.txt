@@ -11,18 +11,18 @@ device :  cpu
  RF_P2_n_estimators=1, max_depth= 50.rfmodel 
 
 (50000, 100) (50000, 100)
-LL lOss :  11.005091287757901
-Train Accuracy :  24.082
-Train Loss :  11.005091287757901
+LL lOss :  10.997627843724699
+Train Accuracy :  23.762
+Train Loss :  10.997627843724699
 
-Time consumed to fit model :  7.223058533 
+Time consumed to fit model :  7.420456452000003 
 
 
 (10000, 100) (10000, 100)
-LL lOss :  25.947582639912337
-{'val_acc': 0.0608, 'val_loss': 25.947582639912337}
-Epoch [0], val_acc: 0.0608
-Results :  {'val_acc': 0.0608, 'val_loss': 25.947582639912337, 'train_loss': 11.005091287757901, 'train_acc': 0.24082, 'n_estimators': 1} 
+LL lOss :  25.890613698718976
+{'val_acc': 0.0604, 'val_loss': 25.890613698718976}
+Epoch [0], val_acc: 0.0604
+Results :  {'val_acc': 0.0604, 'val_loss': 25.890613698718976, 'train_loss': 10.997627843724699, 'train_acc': 0.23762, 'n_estimators': 1} 
 
 
 
@@ -31,17 +31,17 @@ Results :  {'val_acc': 0.0608, 'val_loss': 25.947582639912337, 'train_loss': 11.
  RF_P2_n_estimators=1, max_depth= 50.rfmodel 
 
 (50000, 100) (50000, 100)
-LL lOss :  25.571853150989
-Train Accuracy :  6.658
-Train Loss :  25.571853150989
+LL lOss :  25.44070491081933
+Train Accuracy :  6.81
+Train Loss :  25.44070491081933
 
-Time consumed to fit model :  1.2830545130000104 
+Time consumed to fit model :  1.3678709689999948 
 
 
 (10000, 100) (10000, 100)
-LL lOss :  25.947582639912337
-{'val_acc': 0.0608, 'val_loss': 25.947582639912337}
-Epoch [0], val_acc: 0.0608
-Results :  {'val_acc': 0.0608, 'val_loss': 25.947582639912337, 'train_loss': 25.571853150989, 'train_acc': 0.06658, 'n_estimators': 10} 
+LL lOss :  25.890613698718976
+{'val_acc': 0.0604, 'val_loss': 25.890613698718976}
+Epoch [0], val_acc: 0.0604
+Results :  {'val_acc': 0.0604, 'val_loss': 25.890613698718976, 'train_loss': 25.44070491081933, 'train_acc': 0.0681, 'n_estimators': 10} 
 
 

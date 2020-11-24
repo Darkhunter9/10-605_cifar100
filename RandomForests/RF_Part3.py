@@ -398,6 +398,8 @@ for n_estimators in [1, 10, 50, 100, 200, 500, 1000, 5000]:
 				clf = pickle.load(file)
 		else:
 
+			print("\n\n", filename, "\n\n")
+
 			start = time.process_time()
 
 			if clf == rf_clf_Original:
