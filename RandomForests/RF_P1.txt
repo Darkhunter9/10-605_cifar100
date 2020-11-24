@@ -1,0 +1,106 @@
+Computing expensive_function() ...
+- Data loaded from cache-file: cache_expensive_function.pkl
+result = 56088
+
+Creating object from ExpensiveClass() ...
+- Data loaded from cache-file: cache_ExpensiveClass.pkl
+c = 123
+d = 456
+result = c * d = 56088
+Data has apparently already been downloaded and unpacked.
+Loading data: data/CIFAR-100/cifar-100-python/meta
+Loading data: data/CIFAR-100/cifar-100-python/meta
+Loading data: data/CIFAR-100/cifar-100-python/train
+Loading data: data/CIFAR-100/cifar-100-python/test
+Size of:
+Training-set:		50000
+Test-set:		10000
+
+
+ RFModel_P1_n_estimators=1, max_depth= 50.rfmodel 
+
+
+(50000, 100) (50000, 100)
+precision_score :  0.39446488052503037
+recall_score :  0.37803999999999993
+f1_score :  0.38122576949112885
+ll_loss :  11.585271985184088
+(10000, 100) (10000, 100)
+precision_score :  0.07195533968158814
+recall_score :  0.0676
+f1_score :  0.06877448062130545
+ll_loss :  29.624036391058784
+{'test_acc': 6.76, 'train_acc': 37.804, 'test_loss': 29.624036391058784, 'train_loss': 11.585271985184088, 'test_prec_score': 0.07195533968158814, 'train_prec_score': 0.39446488052503037, 'test_recall_score': 0.0676, 'train_recall_score': 0.37803999999999993, 'test_f1_score': 0.06877448062130545, 'train_f1_score': 0.38122576949112885, 'test_roc_auc_score': 0.5505730252525252, 'train_roc_auc_score': 0.8301708868686869, 'n_estimators': 1}
+
+
+ RFModel_P1_n_estimators=10, max_depth= 50.rfmodel 
+
+
+(50000, 100) (50000, 100)
+precision_score :  0.943730464289594
+recall_score :  0.9431800000000001
+f1_score :  0.9431893377571275
+ll_loss :  1.1765949740870272
+(10000, 100) (10000, 100)
+precision_score :  0.12890187944195372
+recall_score :  0.14100000000000001
+f1_score :  0.1325207858804623
+ll_loss :  14.089717634233116
+{'test_acc': 14.099999999999998, 'train_acc': 94.318, 'test_loss': 14.089717634233116, 'train_loss': 1.1765949740870272, 'test_prec_score': 0.12890187944195372, 'train_prec_score': 0.943730464289594, 'test_recall_score': 0.14100000000000001, 'train_recall_score': 0.9431800000000001, 'test_f1_score': 0.1325207858804623, 'train_f1_score': 0.9431893377571275, 'test_roc_auc_score': 0.7015905757575758, 'train_roc_auc_score': 0.9990821812121213, 'n_estimators': 10}
+
+
+ RFModel_P1_n_estimators=50, max_depth= 50.rfmodel 
+
+
+(50000, 100) (50000, 100)
+precision_score :  0.998867715082828
+recall_score :  0.99886
+f1_score :  0.998860945695876
+ll_loss :  1.1106373085643833
+(10000, 100) (10000, 100)
+precision_score :  0.18976791209447771
+recall_score :  0.2059
+f1_score :  0.18849131459389118
+ll_loss :  4.751220860062305
+{'test_acc': 20.59, 'train_acc': 99.886, 'test_loss': 4.751220860062305, 'train_loss': 1.1106373085643833, 'test_prec_score': 0.18976791209447771, 'train_prec_score': 0.998867715082828, 'test_recall_score': 0.2059, 'train_recall_score': 0.99886, 'test_f1_score': 0.18849131459389118, 'train_f1_score': 0.998860945695876, 'test_roc_auc_score': 0.7992249747474748, 'train_roc_auc_score': 0.9999952448484849, 'n_estimators': 50}
+
+
+ RFModel_P1_n_estimators=100, max_depth= 50.rfmodel 
+
+
+(50000, 100) (50000, 100)
+precision_score :  0.999363730022215
+recall_score :  0.9993599999999999
+f1_score :  0.9993602540679466
+ll_loss :  1.105165232572272
+(10000, 100) (10000, 100)
+precision_score :  0.2195496603682254
+recall_score :  0.22490000000000002
+f1_score :  0.20682612934820357
+ll_loss :  3.841046938539912
+{'test_acc': 22.49, 'train_acc': 99.936, 'test_loss': 3.841046938539912, 'train_loss': 1.105165232572272, 'test_prec_score': 0.2195496603682254, 'train_prec_score': 0.999363730022215, 'test_recall_score': 0.22490000000000002, 'train_recall_score': 0.9993599999999999, 'test_f1_score': 0.20682612934820357, 'train_f1_score': 0.9993602540679466, 'test_roc_auc_score': 0.8245105303030301, 'train_roc_auc_score': 0.9999971781818182, 'n_estimators': 100}
+
+
+ RFModel_P1_n_estimators=200, max_depth= 50.rfmodel 
+
+
+
+Time consumed to fit model :  602.670284487 
+
+
+(50000, 100) (50000, 100)
+precision_score :  0.9995619096648346
+recall_score :  0.99956
+f1_score :  0.9995600375202527
+ll_loss :  1.1012684657797391
+(10000, 100) (10000, 100)
+precision_score :  0.24900034843893984
+recall_score :  0.23929999999999998
+f1_score :  0.22130931835799386
+ll_loss :  3.571474534517851
+{'test_acc': 23.93, 'train_acc': 99.956, 'test_loss': 3.571474534517851, 'train_loss': 1.1012684657797391, 'test_prec_score': 0.24900034843893984, 'train_prec_score': 0.9995619096648346, 'test_recall_score': 0.23929999999999998, 'train_recall_score': 0.99956, 'test_f1_score': 0.22130931835799386, 'train_f1_score': 0.9995600375202527, 'test_roc_auc_score': 0.8445624242424243, 'train_roc_auc_score': 0.9999978311111112, 'n_estimators': 200}
+
+
+ RFModel_P1_n_estimators=500, max_depth= 50.rfmodel 
+
+
