@@ -45,3 +45,163 @@ Epoch [0], val_acc: 0.0604
 Results :  {'val_acc': 0.0604, 'val_loss': 25.890613698718976, 'train_loss': 25.44070491081933, 'train_acc': 0.0681, 'n_estimators': 10} 
 
 
+
+
+
+ RF_P2_n_estimators=10, max_depth= 50.rfmodel 
+
+(50000, 100) (50000, 100)
+LL lOss :  1.8732639188185278
+Train Accuracy :  91.446
+Train Loss :  1.8732639188185278
+
+Time consumed to fit model :  153.32659596799996 
+
+
+(10000, 100) (10000, 100)
+LL lOss :  4.416102317768302
+{'val_acc': 0.1487, 'val_loss': 4.416102317768302}
+Epoch [0], val_acc: 0.1487
+Results :  {'val_acc': 0.1487, 'val_loss': 4.416102317768302, 'train_loss': 1.8732639188185278, 'train_acc': 0.91446, 'n_estimators': 25} 
+
+
+
+
+
+ RF_P2_n_estimators=25, max_depth= 50.rfmodel 
+
+(50000, 100) (50000, 100)
+LL lOss :  2.7251317614917663
+Train Accuracy :  52.612
+Train Loss :  2.7251317614917663
+
+Time consumed to fit model :  64.080345405 
+
+
+(10000, 100) (10000, 100)
+LL lOss :  4.037016629551105
+{'val_acc': 0.1586, 'val_loss': 4.037016629551105}
+Epoch [0], val_acc: 0.1586
+Results :  {'val_acc': 0.1586, 'val_loss': 4.037016629551105, 'train_loss': 2.7251317614917663, 'train_acc': 0.52612, 'n_estimators': 35} 
+
+
+
+
+
+ RF_P2_n_estimators=35, max_depth= 50.rfmodel 
+
+(50000, 100) (50000, 100)
+LL lOss :  3.128695197860471
+Train Accuracy :  32.51
+Train Loss :  3.128695197860471
+
+Time consumed to fit model :  36.232941031999985 
+
+
+(10000, 100) (10000, 100)
+LL lOss :  3.953543808663104
+{'val_acc': 0.161, 'val_loss': 3.953543808663104}
+Epoch [0], val_acc: 0.1610
+Results :  {'val_acc': 0.161, 'val_loss': 3.953543808663104, 'train_loss': 3.128695197860471, 'train_acc': 0.3251, 'n_estimators': 40} 
+
+
+
+
+
+ RF_P2_n_estimators=40, max_depth= 50.rfmodel 
+
+(50000, 100) (50000, 100)
+LL lOss :  2.8868237883419647
+Train Accuracy :  46.854
+Train Loss :  2.8868237883419647
+
+Time consumed to fit model :  76.44609322499991 
+
+
+(10000, 100) (10000, 100)
+LL lOss :  3.8505234004047466
+{'val_acc': 0.1665, 'val_loss': 3.8505234004047466}
+Epoch [0], val_acc: 0.1665
+Results :  {'val_acc': 0.1665, 'val_loss': 3.8505234004047466, 'train_loss': 2.8868237883419647, 'train_acc': 0.46854, 'n_estimators': 50} 
+
+
+
+
+
+ RF_P2_n_estimators=50, max_depth= 50.rfmodel 
+
+(50000, 100) (50000, 100)
+LL lOss :  2.311256674391928
+Train Accuracy :  87.02
+Train Loss :  2.311256674391928
+
+Time consumed to fit model :  323.90653124999994 
+
+
+(10000, 100) (10000, 100)
+LL lOss :  3.7244644335682615
+{'val_acc': 0.1826, 'val_loss': 3.7244644335682615}
+Epoch [0], val_acc: 0.1826
+Results :  {'val_acc': 0.1826, 'val_loss': 3.7244644335682615, 'train_loss': 2.311256674391928, 'train_acc': 0.8702, 'n_estimators': 100} 
+
+
+
+
+
+ RF_P2_n_estimators=100, max_depth= 50.rfmodel 
+
+(50000, 100) (50000, 100)
+LL lOss :  2.2996076278719277
+Train Accuracy :  88.97
+Train Loss :  2.2996076278719277
+
+Time consumed to fit model :  658.403524156 
+
+
+(10000, 100) (10000, 100)
+LL lOss :  3.668740798791074
+{'val_acc': 0.1927, 'val_loss': 3.668740798791074}
+Epoch [0], val_acc: 0.1927
+Results :  {'val_acc': 0.1927, 'val_loss': 3.668740798791074, 'train_loss': 2.2996076278719277, 'train_acc': 0.8897, 'n_estimators': 200} 
+
+
+
+
+
+ RF_P2_n_estimators=200, max_depth= 50.rfmodel 
+
+(50000, 100) (50000, 100)
+LL lOss :  2.167908781242531
+Train Accuracy :  92.55600000000001
+Train Loss :  2.167908781242531
+
+Time consumed to fit model :  7802.511376226999 
+
+
+(10000, 100) (10000, 100)
+LL lOss :  3.6467896598230336
+{'val_acc': 0.2012, 'val_loss': 3.6467896598230336}
+Epoch [0], val_acc: 0.2012
+Results :  {'val_acc': 0.2012, 'val_loss': 3.6467896598230336, 'train_loss': 2.167908781242531, 'train_acc': 0.92556, 'n_estimators': 500} 
+
+
+
+
+
+ RF_P2_n_estimators=500, max_depth= 50.rfmodel 
+
+(50000, 100) (50000, 100)
+LL lOss :  2.2925509489184757
+Train Accuracy :  90.116
+Train Loss :  2.2925509489184757
+
+Time consumed to fit model :  7643.368368325 
+
+
+(10000, 100) (10000, 100)
+LL lOss :  3.635823579177981
+{'val_acc': 0.2034, 'val_loss': 3.635823579177981}
+Epoch [0], val_acc: 0.2034
+Results :  {'val_acc': 0.2034, 'val_loss': 3.635823579177981, 'train_loss': 2.2925509489184757, 'train_acc': 0.90116, 'n_estimators': 1000} 
+
+
