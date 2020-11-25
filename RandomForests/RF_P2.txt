@@ -205,3 +205,8 @@ Epoch [0], val_acc: 0.2034
 Results :  {'val_acc': 0.2034, 'val_loss': 3.635823579177981, 'train_loss': 2.2925509489184757, 'train_acc': 0.90116, 'n_estimators': 1000} 
 
 
+
+
+
+ RF_P2_n_estimators=1000, max_depth= 50.rfmodel 
+
