@@ -2,3 +2,217 @@ Device: cpu
 Files already downloaded and verified
 Image batch dimensions: torch.Size([50000, 3, 32, 32])
 Image label dimensions: torch.Size([50000])
+Epoch: 001/005 | Batch 000/001 | Cost: 0.8349
+Time elapsed: 0.17 min
+Epoch: 002/005 | Batch 000/001 | Cost: 0.7763
+Time elapsed: 0.35 min
+Epoch: 003/005 | Batch 000/001 | Cost: 0.6948
+Time elapsed: 0.52 min
+Epoch: 004/005 | Batch 000/001 | Cost: 0.6941
+Time elapsed: 0.69 min
+Epoch: 005/005 | Batch 000/001 | Cost: 0.6939
+Time elapsed: 0.86 min
+Total Training Time: 0.86 min
+Image batch dimensions: torch.Size([15, 3, 32, 32])
+Image label dimensions: torch.Size([15])
+Image batch dimensions: torch.Size([15, 3, 32, 32])
+Image label dimensions: torch.Size([15])
+Image batch dimensions: torch.Size([50000, 3, 32, 32])
+Image label dimensions: torch.Size([50000])
+Image batch dimensions: torch.Size([10000, 3, 32, 32])
+Image label dimensions: torch.Size([10000])
+Train Accuracy: 65.566%
+Test Accuracy: 6.510000000000001%
+Train Accuracy: 65.098%
+Test Accuracy: 5.7700000000000005%
+Train Accuracy: 64.788%
+Test Accuracy: 4.36%
+
+
+ RF_Original_P3_n_estimators=1, max_depth= 50.rfmodel 
+
+
+
+Time consumed to fit model :  6.426513354000008 
+
+
+
+
+ RF_PCA_P3_n_estimators=1, max_depth= 50.rfmodel 
+
+
+
+Time consumed to fit model :  4.459639395000011 
+
+
+
+
+ RF_AE_P3_n_estimators=1, max_depth= 50.rfmodel 
+
+
+
+Time consumed to fit model :  1.6788051089999954 
+
+
+
+
+ RF_Original_P3_n_estimators=10, max_depth= 50.rfmodel 
+
+
+
+Time consumed to fit model :  58.35279404199997 
+
+
+
+
+ RF_PCA_P3_n_estimators=10, max_depth= 50.rfmodel 
+
+
+
+Time consumed to fit model :  40.02730321399997 
+
+
+
+
+ RF_AE_P3_n_estimators=10, max_depth= 50.rfmodel 
+
+
+
+Time consumed to fit model :  14.72152769600001 
+
+
+
+
+ RF_Original_P3_n_estimators=50, max_depth= 50.rfmodel 
+
+
+
+Time consumed to fit model :  342.557380335 
+
+
+
+
+ RF_PCA_P3_n_estimators=50, max_depth= 50.rfmodel 
+
+
+
+Time consumed to fit model :  180.670390569 
+
+
+
+
+ RF_AE_P3_n_estimators=50, max_depth= 50.rfmodel 
+
+
+
+Time consumed to fit model :  66.31931296599998 
+
+
+
+
+ RF_Original_P3_n_estimators=100, max_depth= 50.rfmodel 
+
+
+
+Time consumed to fit model :  331.632206484 
+
+
+
+
+ RF_PCA_P3_n_estimators=100, max_depth= 50.rfmodel 
+
+
+
+Time consumed to fit model :  235.14622151900016 
+
+
+
+
+ RF_AE_P3_n_estimators=100, max_depth= 50.rfmodel 
+
+
+
+Time consumed to fit model :  87.88898357700009 
+
+
+
+
+ RF_Original_P3_n_estimators=200, max_depth= 50.rfmodel 
+
+
+
+Time consumed to fit model :  739.5779856009999 
+
+
+
+
+ RF_PCA_P3_n_estimators=200, max_depth= 50.rfmodel 
+
+
+
+Time consumed to fit model :  445.1548982909999 
+
+
+
+
+ RF_AE_P3_n_estimators=200, max_depth= 50.rfmodel 
+
+
+
+Time consumed to fit model :  165.8178721690001 
+
+
+
+
+ RF_Original_P3_n_estimators=500, max_depth= 50.rfmodel 
+
+
+
+Time consumed to fit model :  2142.7706719829994 
+
+
+
+
+ RF_PCA_P3_n_estimators=500, max_depth= 50.rfmodel 
+
+
+
+Time consumed to fit model :  1380.6298652019996 
+
+
+
+
+ RF_AE_P3_n_estimators=500, max_depth= 50.rfmodel 
+
+
+
+Time consumed to fit model :  490.9857478920003 
+
+
+
+
+ RF_Original_P3_n_estimators=1000, max_depth= 50.rfmodel 
+
+
+
+Time consumed to fit model :  3553.0151499959993 
+
+
+
+
+ RF_PCA_P3_n_estimators=1000, max_depth= 50.rfmodel 
+
+
+
+Time consumed to fit model :  8111.011527975001 
+
+
+
+
+ RF_AE_P3_n_estimators=1000, max_depth= 50.rfmodel 
+
+
+
+Time consumed to fit model :  3525.986847911001 
+
+

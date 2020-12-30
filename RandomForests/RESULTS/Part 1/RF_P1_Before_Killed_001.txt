@@ -1,0 +1,141 @@
+Computing expensive_function() ...
+- Data loaded from cache-file: cache_expensive_function.pkl
+result = 56088
+
+Creating object from ExpensiveClass() ...
+- Data loaded from cache-file: cache_ExpensiveClass.pkl
+c = 123
+d = 456
+result = c * d = 56088
+
+Download finished. Extracting files.
+Done.
+Loading data: data/CIFAR-100/cifar-100-python/meta
+Loading data: data/CIFAR-100/cifar-100-python/meta
+Loading data: data/CIFAR-100/cifar-100-python/train
+Loading data: data/CIFAR-100/cifar-100-python/test
+Size of:
+Training-set:		50000
+Test-set:		10000
+
+
+ RFModel_P1_n_estimators=1, max_depth= 50.rfmodel 
+
+
+
+Time consumed to fit model :  6.326132828 
+
+
+(50000, 100) (50000, 100)
+precision_score :  0.3929853049666874
+recall_score :  0.37892000000000003
+f1_score :  0.3812132133739037
+ll_loss :  11.637187748526697
+(10000, 100) (10000, 100)
+precision_score :  0.07120922743323693
+recall_score :  0.06820000000000001
+f1_score :  0.06862970943735819
+ll_loss :  29.67583966042138
+{'test_acc': 6.819999999999999, 'train_acc': 37.891999999999996, 'test_loss': 29.67583966042138, 'train_loss': 11.637187748526697, 'test_prec_score': 0.07120922743323693, 'train_prec_score': 0.3929853049666874, 'test_recall_score': 0.06820000000000001, 'train_recall_score': 0.37892000000000003, 'test_f1_score': 0.06862970943735819, 'train_f1_score': 0.3812132133739037, 'test_roc_auc_score': 0.5509936666666666, 'train_roc_auc_score': 0.8296316995959596, 'n_estimators': 1}
+
+
+ RFModel_P1_n_estimators=10, max_depth= 50.rfmodel 
+
+
+
+Time consumed to fit model :  53.742778621 
+
+
+(50000, 100) (50000, 100)
+precision_score :  0.9430213959921342
+recall_score :  0.94254
+f1_score :  0.9425604969245629
+ll_loss :  1.183805282776174
+(10000, 100) (10000, 100)
+precision_score :  0.12888977316970965
+recall_score :  0.1404
+f1_score :  0.13229402233845133
+ll_loss :  13.449039350052745
+{'test_acc': 14.04, 'train_acc': 94.254, 'test_loss': 13.449039350052745, 'train_loss': 1.183805282776174, 'test_prec_score': 0.12888977316970965, 'train_prec_score': 0.9430213959921342, 'test_recall_score': 0.1404, 'train_recall_score': 0.94254, 'test_f1_score': 0.13229402233845133, 'train_f1_score': 0.9425604969245629, 'test_roc_auc_score': 0.7078635151515152, 'train_roc_auc_score': 0.999026788080808, 'n_estimators': 10}
+
+
+ RFModel_P1_n_estimators=50, max_depth= 50.rfmodel 
+
+
+Time consumed to fit model :  238.81039023900001 
+
+
+(50000, 100) (50000, 100)
+precision_score :  0.9989047900416588
+recall_score :  0.9989
+f1_score :  0.998900371365108
+ll_loss :  1.1116768973244453
+(10000, 100) (10000, 100)
+precision_score :  0.19499866137750768
+recall_score :  0.20770000000000002
+f1_score :  0.19247924757806076
+ll_loss :  4.6904019084536195
+{'test_acc': 20.77, 'train_acc': 99.89, 'test_loss': 4.6904019084536195, 'train_loss': 1.1116768973244453, 'test_prec_score': 0.19499866137750768, 'train_prec_score': 0.9989047900416588, 'test_recall_score': 0.20770000000000002, 'train_recall_score': 0.9989, 'test_f1_score': 0.19247924757806076, 'train_f1_score': 0.998900371365108, 'test_roc_auc_score': 0.8004002727272728, 'train_roc_auc_score': 0.9999946561616162, 'n_estimators': 50}
+
+
+ RFModel_P1_n_estimators=100, max_depth= 50.rfmodel 
+
+
+
+Time consumed to fit model :  341.640108124 
+
+
+(50000, 100) (50000, 100)
+precision_score :  0.9994624642641844
+recall_score :  0.9994600000000001
+f1_score :  0.9994601770642295
+ll_loss :  1.105227139116265
+(10000, 100) (10000, 100)
+precision_score :  0.22133857839098361
+recall_score :  0.22679999999999992
+f1_score :  0.20940328104316194
+ll_loss :  3.787629649914267
+{'test_acc': 22.68, 'train_acc': 99.946, 'test_loss': 3.787629649914267, 'train_loss': 1.105227139116265, 'test_prec_score': 0.22133857839098361, 'train_prec_score': 0.9994624642641844, 'test_recall_score': 0.22679999999999992, 'train_recall_score': 0.9994600000000001, 'test_f1_score': 0.20940328104316194, 'train_f1_score': 0.9994601770642295, 'test_roc_auc_score': 0.825515621212121, 'train_roc_auc_score': 0.9999967624242423, 'n_estimators': 100}
+
+
+ RFModel_P1_n_estimators=200, max_depth= 50.rfmodel 
+
+
+
+Time consumed to fit model :  611.829142059 
+
+
+(50000, 100) (50000, 100)
+precision_score :  0.9995810347403635
+recall_score :  0.99958
+f1_score :  0.9995799988001133
+ll_loss :  1.102653783044268
+(10000, 100) (10000, 100)
+precision_score :  0.24189253142650174
+recall_score :  0.23790000000000003
+f1_score :  0.21865998802939
+ll_loss :  3.562291591903402
+{'test_acc': 23.79, 'train_acc': 99.958, 'test_loss': 3.562291591903402, 'train_loss': 1.102653783044268, 'test_prec_score': 0.24189253142650174, 'train_prec_score': 0.9995810347403635, 'test_recall_score': 0.23790000000000003, 'train_recall_score': 0.99958, 'test_f1_score': 0.21865998802939, 'train_f1_score': 0.9995799988001133, 'test_roc_auc_score': 0.8466605252525252, 'train_roc_auc_score': 0.9999977353535353, 'n_estimators': 200}
+
+
+ RFModel_P1_n_estimators=500, max_depth= 50.rfmodel 
+
+Time consumed to fit model :  1916.824503111 
+
+
+(50000, 100) (50000, 100)
+precision_score :  0.9996415510195754
+recall_score :  0.99964
+f1_score :  0.9996400378001336
+ll_loss :  1.0994690036299761
+(10000, 100) (10000, 100)
+precision_score :  0.26924437705328824
+recall_score :  0.2503
+f1_score :  0.2305392378710929
+ll_loss :  3.4831020821105807
+{'test_acc': 25.03, 'train_acc': 99.964, 'test_loss': 3.4831020821105807, 'train_loss': 1.0994690036299761, 'test_prec_score': 0.26924437705328824, 'train_prec_score': 0.9996415510195754, 'test_recall_score': 0.2503, 'train_recall_score': 0.99964, 'test_f1_score': 0.2305392378710929, 'train_f1_score': 0.9996400378001336, 'test_roc_auc_score': 0.8639330505050505, 'train_roc_auc_score': 0.9999983943434344, 'n_estimators': 500}
+
+
+ RFModel_P1_n_estimators=1000, max_depth= 50.rfmodel 
+
+
